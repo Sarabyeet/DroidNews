@@ -86,7 +86,16 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvPublisher"
                 tools:text="August 20, 2022" />
-
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/isFavorite"
+                app:layout_constraintStart_toStartOf="@id/tvDescription"
+                app:layout_constraintBottom_toBottomOf="parent"
+                tools:src="@drawable/ic_baseline_favorite_border_24"
+                app:tint="?colorOnSurface"
+                android:background="?selectableItemBackground"
+                android:layout_margin="8dp"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>

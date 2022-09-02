@@ -1,20 +1,24 @@
 package com.sarabyeet.droidnews
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.databinding.BindingAdapter
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.RecyclerView
+import com.sarabyeet.droidnews.arch.DroidNewsViewModel
 import com.sarabyeet.droidnews.databinding.ActivityMainBinding
-import com.sarabyeet.droidnews.model.DroidNewsItem
+import com.sarabyeet.droidnews.newsfeed.DroidNewsHomeAdapter
+import com.sarabyeet.droidnews.newsfeed.DroidNewsItemActions
+import java.lang.ref.WeakReference
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), DroidNewsItemActions {
+    private val viewModel: DroidNewsViewModel by lazy {
+        ViewModelProvider(this)[DroidNewsViewModel::class.java]
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        val viewModel = ViewModelProvider(this)[DroidNewsViewModel::class.java]
-        val binding : ActivityMainBinding = DataBindingUtil.setContentView(
+        val binding: ActivityMainBinding = DataBindingUtil.setContentView(
             this, R.layout.activity_main
         )
         binding.lifecycleOwner = this
@@ -22,8 +26,19 @@ class MainActivity : AppCompatActivity() {
 
         viewModel.fetchNews()
 
-        val adapter = DroidNewsHomeAdapter()
+        val adapter = DroidNewsHomeAdapter(WeakReference(this))
         binding.rvHome.adapter = adapter
 
+    }
+
+    override fun onFavoriteSelected(id: String, isFavorite: Boolean) {
+        viewModel.updateFavoriteStatus(id, isFavorite)
+    }
+
+    override fun onNewsItemClicked(url: String) {
+        val intent = Intent(this, DetailsActivity::class.java).apply {
+            putExtra(DetailsActivity.ARG_URL, url)
+        }
+        startActivity(intent)
     }
 }

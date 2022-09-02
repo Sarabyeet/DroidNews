@@ -6,7 +6,7 @@
 
         <variable
             name="viewModel"
-            type="com.sarabyeet.droidnews.DroidNewsViewModel" />
+            type="com.sarabyeet.droidnews.arch.DroidNewsViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

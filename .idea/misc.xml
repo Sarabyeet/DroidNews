@@ -6,6 +6,10 @@
         <entry key="..\:/Personal/Coding new/AndroidRevision/DroidNews/app/src/main/res/drawable/news_title_background.xml" value="0.2505" />
         <entry key="..\:/Personal/Coding new/AndroidRevision/DroidNews/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
         <entry key="..\:/Personal/Coding new/AndroidRevision/DroidNews/app/src/main/res/layout/droid_news_view_holder_item.xml" value="0.33" />
+        <entry key="..\:/Personal/CodingPractice/Android/DroidNews/app/src/main/res/drawable/ic_baseline_favorite_24.xml" value="0.1035" />
+        <entry key="..\:/Personal/CodingPractice/Android/DroidNews/app/src/main/res/drawable/ic_baseline_favorite_border_24.xml" value="0.266" />
+        <entry key="..\:/Personal/CodingPractice/Android/DroidNews/app/src/main/res/layout/activity_details.xml" value="0.22010869565217392" />
+        <entry key="..\:/Personal/CodingPractice/Android/DroidNews/app/src/main/res/layout/droid_news_view_holder_item.xml" value="0.28351449275362317" />
       </map>
     </option>
   </component>
